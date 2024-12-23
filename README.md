@@ -1,13 +1,24 @@
 ```mermaid
-graph TD;
-    A[PDF Document] --> B[PDF Parsing]
-    B --> C[Embedding Generation]
-    C --> D[Indexing]
-    D --> E[Query Processing]
-    E --> F[Retrieval]
-    F --> G[Response Generation]
-    G --> H[User]
+sequenceDiagram
+    participant User
+    participant PDF_Document
+    participant PDF_Parsing
+    participant Embedding_Generation
+    participant Indexing
+    participant Query_Processing
+    participant Retrieval
+    participant Response_Generation
+    User->>PDF_Document: Upload PDF
+    PDF_Document->>PDF_Parsing: Parse PDF
+    PDF_Parsing->>Embedding_Generation: Generate Embeddings
+    Embedding_Generation->>Indexing: Index Embeddings
+    User->>Query_Processing: Submit Query
+    Query_Processing->>Embedding_Generation: Generate Query Embeddings
+    Query_Processing->>Retrieval: Retrieve Information
+    Retrieval->>Response_Generation: Generate Response
+    Response_Generation->>User: Provide Response
 ```
+
 ## Introduction
 
 TeleMed-Chatbot-Generative-AI is a Retrieval-Augmented Generation (RAG) based application designed to enhance telemedicine consultations. By leveraging generative AI techniques, the chatbot can understand and respond to queries,and provide medical information from the medical book journal(pdf)
